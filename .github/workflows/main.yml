@@ -1,0 +1,21 @@
+name: Ejecutar Pruebas de Calculadora
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest  
+
+    steps:
+    - name: Descargar codigo del repositorio
+      uses: actions/checkout@v4
+
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Ejecutar pruebas unitarias
+      run: python test_calculadora.py
